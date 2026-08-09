@@ -8,16 +8,40 @@ import MagneticButton from '../components/MagneticButton'
 
 const iconMap = { Github, Instagram, Youtube, Linkedin, Facebook, Music2, MessageCircle }
 
+// EDIT ME: sign up free at formspree.io, create a form, and paste your
+// endpoint ID below (the part after /f/ in the URL Formspree gives you).
+// See README.md "Contact form" section for the 3-minute setup steps.
+const FORMSPREE_ID = 'YOUR_FORM_ID'
+
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'sent'>('idle')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    // No backend is wired up yet — see README.md "Contact form" section
-    // for how to connect this to Formspree, EmailJS, or your own API
-    // in a couple of minutes, without exposing any private keys.
-    setStatus('sent')
+
+    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+      // Not configured yet — see README.md "Contact form" section.
+      setStatus('error')
+      return
+    }
+
+    setStatus('sending')
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setStatus('sent')
+        setForm({ name: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -82,11 +106,17 @@ export default function Contact() {
 
             <div className="flex items-center gap-4 pt-2">
               <MagneticButton type="submit" variant="solid">
-                Send Message <ArrowUpRight size={16} />
+                {status === 'sending' ? 'Sending…' : 'Send Message'}{' '}
+                {status !== 'sending' && <ArrowUpRight size={16} />}
               </MagneticButton>
               {status === 'sent' && (
                 <span className="font-mono text-xs text-live">
-                  Message captured — connect a backend to deliver it (see README).
+                  Message sent — thanks, I'll get back to you soon.
+                </span>
+              )}
+              {status === 'error' && (
+                <span className="font-mono text-xs text-red-400">
+                  Couldn't send — form isn't connected yet (see README).
                 </span>
               )}
             </div>

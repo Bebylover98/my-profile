@@ -24,7 +24,7 @@ export default function Projects() {
                       <img
                         src={project.image}
                         alt={project.name}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-contain p-6"
                       />
                     ) : (
                       <span className="font-mono text-6xl font-semibold text-border transition-colors duration-500 group-hover:text-signal/30">

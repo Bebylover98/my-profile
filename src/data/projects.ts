@@ -24,7 +24,7 @@ export const projects: Project[] = [
     tech: ['React', 'Node.js', 'Firebase'],
     github: '',
     demo: '',
-    image: '/projects/bookverse.svg',
+    image: '/projects/bookverse.png',
   },
   {
     id: 'clean-earth',
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     tech: ['React', 'Node.js', 'Firebase'],
     github: '',
     demo: '',
-    image: '/projects/clean-earth.svg',
+    image: '/projects/clean-earth.png',
   },
   {
     id: 'personal-assistant',
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     tech: ['Python', 'AI/ML'],
     github: '',
     demo: '',
-    image: '/projects/personal-assistant.svg',
+    image: '/projects/personal-assistant.png',
   },
   {
     id: 'kickoff-store',
