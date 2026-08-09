@@ -55,7 +55,7 @@ export default function Projects() {
                     </div>
 
                     <div className="mt-7 flex flex-wrap gap-3">
-                      {project.github ? (
+                      {project.github && (
                         <a
                           href={project.github}
                           target="_blank"
@@ -64,10 +64,6 @@ export default function Projects() {
                         >
                           <Github size={14} /> Code
                         </a>
-                      ) : (
-                        <span className="inline-flex items-center gap-2 rounded-full border border-border/50 px-4 py-2 font-mono text-xs text-faint">
-                          <Github size={14} /> Code coming soon
-                        </span>
                       )}
                       {project.demo ? (
                         <a
@@ -76,7 +72,7 @@ export default function Projects() {
                           rel="noreferrer"
                           className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 font-mono text-xs text-bg transition-colors hover:bg-signal2"
                         >
-                          <ExternalLink size={14} /> Live demo
+                          <ExternalLink size={14} /> Visit
                         </a>
                       ) : (
                         <span className="inline-flex items-center gap-2 rounded-full border border-border/50 px-4 py-2 font-mono text-xs text-faint">

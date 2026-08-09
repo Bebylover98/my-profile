@@ -56,7 +56,7 @@ export const projects: Project[] = [
       'A sports accessories and jersey e-commerce website, built with a focus on fast browsing and a clean checkout flow.',
     tech: ['React', 'Node.js', 'Firebase'],
     github: '',
-    demo: '',
+    demo: 'https://kickoff-store-teal.vercel.app/',
     image: '/projects/kickoff-store.jpg',
   },
   {
@@ -67,7 +67,7 @@ export const projects: Project[] = [
       'My personal introduction site — this one. Built to showcase who I am, what I\'m building, and an easy way for people to reach me.',
     tech: ['React', 'TypeScript', 'Tailwind CSS'],
     github: '',
-    demo: '',
+    demo: 'https://my-profile-chi-self.vercel.app/',
     image: '/projects/portfolio-website.jpg',
   },
 ]
