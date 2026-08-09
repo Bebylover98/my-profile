@@ -3,6 +3,7 @@ import { useMouseCSSVars } from './hooks/useMousePosition'
 import Navbar from './components/Navbar'
 import CustomCursor from './components/CustomCursor'
 import LoadingScreen from './components/LoadingScreen'
+import FloatingSocial from './components/FloatingSocial'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import Skills from './sections/Skills'
@@ -27,6 +28,7 @@ export default function App() {
       <LoadingScreen show={loading} />
       <CustomCursor />
       <Navbar />
+      <FloatingSocial />
 
       <main>
         <Hero />

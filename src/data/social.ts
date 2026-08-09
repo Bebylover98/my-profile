@@ -10,5 +10,5 @@ export const socials: SocialLink[] = [
   { name: 'Facebook', href: 'https://www.facebook.com/share/1HC1PBcVng/?mibextid=wwXIfr', icon: 'Facebook' },
   { name: 'Instagram', href: 'https://www.instagram.com/its_mr.ankityadav', icon: 'Instagram' },
   { name: 'TikTok', href: 'https://www.tiktok.com/@ankit__yadav33', icon: 'Music2' },
-  { name: 'WhatsApp', href: 'https://wa.me/9779764569768', icon: 'MessageCircle' },
+  { name: 'WhatsApp', href: 'https://wa.me/9779803568924', icon: 'MessageCircle' },
 ]
