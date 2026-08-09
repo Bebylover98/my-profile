@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import { Github, Instagram, Youtube, Linkedin, Facebook, Music2, MessageCircle, ArrowUpRight } from 'lucide-react'
 import { profile } from '../data/profile'
 import { socials } from '../data/social'
@@ -8,41 +8,11 @@ import MagneticButton from '../components/MagneticButton'
 
 const iconMap = { Github, Instagram, Youtube, Linkedin, Facebook, Music2, MessageCircle }
 
-// EDIT ME: sign up free at formspree.io, create a form, and paste your
-// endpoint ID below (the part after /f/ in the URL Formspree gives you).
-// See README.md "Contact form" section for the 3-minute setup steps.
+// Your Formspree form ID — from https://formspree.io/f/mqpzpqpz
 const FORMSPREE_ID = 'mqpzpqpz'
 
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-
-    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
-      // Not configured yet — see README.md "Contact form" section.
-      setStatus('error')
-      return
-    }
-
-    setStatus('sending')
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      if (res.ok) {
-        setStatus('sent')
-        setForm({ name: '', email: '', message: '' })
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
-  }
+  const [state, handleSubmit] = useForm(FORMSPREE_ID)
 
   return (
     <section id="contact" className="relative px-6 py-28 sm:py-36">
@@ -58,69 +28,88 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <form onSubmit={handleSubmit} className="mt-12 space-y-5">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {state.succeeded ? (
+            <div className="mt-12 rounded-2xl border border-live/30 bg-live/5 px-6 py-8 text-center">
+              <p className="font-display text-lg font-semibold text-ink">Message sent!</p>
+              <p className="mt-1 text-sm text-muted">
+                Thanks for reaching out — I'll get back to you soon.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-12 space-y-5">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="font-mono text-xs uppercase tracking-wider text-faint">
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    className="mt-2 w-full rounded-lg border border-border bg-panel/50 px-4 py-3 text-ink outline-none transition-colors placeholder:text-faint focus:border-signal2"
+                    placeholder="Your name"
+                  />
+                  <ValidationError
+                    prefix="Name"
+                    field="name"
+                    errors={state.errors}
+                    className="mt-1.5 block font-mono text-xs text-red-400"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="font-mono text-xs uppercase tracking-wider text-faint">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    required
+                    className="mt-2 w-full rounded-lg border border-border bg-panel/50 px-4 py-3 text-ink outline-none transition-colors placeholder:text-faint focus:border-signal2"
+                    placeholder="you@example.com"
+                  />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                    className="mt-1.5 block font-mono text-xs text-red-400"
+                  />
+                </div>
+              </div>
+
               <div>
-                <label htmlFor="name" className="font-mono text-xs uppercase tracking-wider text-faint">
-                  Name
+                <label htmlFor="message" className="font-mono text-xs uppercase tracking-wider text-faint">
+                  Message
                 </label>
-                <input
-                  id="name"
+                <textarea
+                  id="message"
+                  name="message"
                   required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="mt-2 w-full rounded-lg border border-border bg-panel/50 px-4 py-3 text-ink outline-none transition-colors placeholder:text-faint focus:border-signal2"
-                  placeholder="Your name"
+                  rows={5}
+                  className="mt-2 w-full resize-none rounded-lg border border-border bg-panel/50 px-4 py-3 text-ink outline-none transition-colors placeholder:text-faint focus:border-signal2"
+                  placeholder="What's on your mind?"
+                />
+                <ValidationError
+                  prefix="Message"
+                  field="message"
+                  errors={state.errors}
+                  className="mt-1.5 block font-mono text-xs text-red-400"
                 />
               </div>
-              <div>
-                <label htmlFor="email" className="font-mono text-xs uppercase tracking-wider text-faint">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="mt-2 w-full rounded-lg border border-border bg-panel/50 px-4 py-3 text-ink outline-none transition-colors placeholder:text-faint focus:border-signal2"
-                  placeholder="you@example.com"
-                />
+
+              <div className="flex items-center gap-4 pt-2">
+                <MagneticButton type="submit" variant="solid">
+                  {state.submitting ? 'Sending…' : 'Send Message'}{' '}
+                  {!state.submitting && <ArrowUpRight size={16} />}
+                </MagneticButton>
+                {state.errors && state.errors.getFormErrors().length > 0 && (
+                  <span className="font-mono text-xs text-red-400">
+                    Something went wrong — please try again.
+                  </span>
+                )}
               </div>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="font-mono text-xs uppercase tracking-wider text-faint">
-                Message
-              </label>
-              <textarea
-                id="message"
-                required
-                rows={5}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="mt-2 w-full resize-none rounded-lg border border-border bg-panel/50 px-4 py-3 text-ink outline-none transition-colors placeholder:text-faint focus:border-signal2"
-                placeholder="What's on your mind?"
-              />
-            </div>
-
-            <div className="flex items-center gap-4 pt-2">
-              <MagneticButton type="submit" variant="solid">
-                {status === 'sending' ? 'Sending…' : 'Send Message'}{' '}
-                {status !== 'sending' && <ArrowUpRight size={16} />}
-              </MagneticButton>
-              {status === 'sent' && (
-                <span className="font-mono text-xs text-live">
-                  Message sent — thanks, I'll get back to you soon.
-                </span>
-              )}
-              {status === 'error' && (
-                <span className="font-mono text-xs text-red-400">
-                  Couldn't send — form isn't connected yet (see README).
-                </span>
-              )}
-            </div>
-          </form>
+            </form>
+          )}
         </Reveal>
 
         <Reveal delay={0.15}>
