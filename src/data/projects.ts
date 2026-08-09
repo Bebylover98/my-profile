@@ -48,6 +48,7 @@ export const projects: Project[] = [
     demo: '',
     image: '/projects/personal-assistant.png',
   },
+    
   {
     id: 'kickoff-store',
     index: '04',
@@ -69,6 +70,29 @@ export const projects: Project[] = [
     github: '',
     demo: 'https://my-profile-chi-self.vercel.app/',
     image: '/projects/portfolio-website.jpg',
+  },
+  {
+  id: 'quiz-website',
+    index: '06',
+    name: 'Quiz HUB',
+    description:
+      'An Quiz website to just check your knowledge.quiz is a short test of knowledge that helps people learn new facts in a fun way. ',
+    tech: ['HTML', 'CSS','javascript'],
+    github: '',
+    demo: '',
+    image: '/projects/quiz.png',
+  },
+
+  {
+  id: 'Note-Sharing',
+    index: '07',
+    name: 'Note Share',
+    description:
+      'A note-sharing website is an online platform where people can upload, read, and trade study guides, lecture summaries, or text files. it helps student to get and share their notes',
+    tech: ['HTML', 'CSS','javascript'],
+    github: '',
+    demo: '',
+    image: '/projects/note-share.png',
   },
 ]
 
