@@ -1,0 +1,44 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bv-glow" cx="50%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#3A2E6B"/>
+      <stop offset="100%" stop-color="#1E1740"/>
+    </radialGradient>
+    <linearGradient id="bv-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0C572"/>
+      <stop offset="100%" stop-color="#C99A3E"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="240" cy="180" r="150" fill="url(#bv-glow)"/>
+
+  <!-- orbit rings suggesting a "verse" / universe -->
+  <ellipse cx="240" cy="180" rx="128" ry="46" fill="none" stroke="#D4A24C" stroke-opacity="0.35" stroke-width="1.5"/>
+  <ellipse cx="240" cy="180" rx="98" ry="98" fill="none" stroke="#D4A24C" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- small stars -->
+  <circle cx="130" cy="110" r="2.4" fill="#F0C572"/>
+  <circle cx="356" cy="98" r="1.8" fill="#F0C572"/>
+  <circle cx="368" cy="220" r="2.2" fill="#F0C572"/>
+  <circle cx="112" cy="230" r="1.6" fill="#F0C572"/>
+  <circle cx="240" cy="55" r="1.8" fill="#F0C572"/>
+
+  <!-- open book, spine as vertical axis, pages curving up like wings/orbit -->
+  <g transform="translate(240,190)">
+    <path d="M0,-6 C-70,-46 -118,-30 -128,6 C-118,-4 -70,-8 0,26 Z" fill="url(#bv-gold)"/>
+    <path d="M0,-6 C70,-46 118,-30 128,6 C118,-4 70,-8 0,26 Z" fill="#F0C572" fill-opacity="0.92"/>
+    <!-- page lines -->
+    <path d="M-8,-2 C-55,-30 -95,-20 -112,4" fill="none" stroke="#1E1740" stroke-width="1.4" stroke-opacity="0.35"/>
+    <path d="M-8,10 C-55,-14 -95,-6 -112,14" fill="none" stroke="#1E1740" stroke-width="1.4" stroke-opacity="0.35"/>
+    <path d="M8,-2 C55,-30 95,-20 112,4" fill="none" stroke="#1E1740" stroke-width="1.4" stroke-opacity="0.3"/>
+    <path d="M8,10 C55,-14 95,-6 112,14" fill="none" stroke="#1E1740" stroke-width="1.4" stroke-opacity="0.3"/>
+    <!-- spine -->
+    <rect x="-3" y="-8" width="6" height="34" rx="2" fill="#1E1740"/>
+    <!-- rising star trail from spine, book as source of the universe -->
+    <path d="M0,-8 C4,-40 -6,-70 2,-104" fill="none" stroke="#D4A24C" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+    <circle cx="2" cy="-104" r="4" fill="#F0C572"/>
+  </g>
+
+  <text x="240" y="372" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#F7F1E1" letter-spacing="1">Book<tspan fill="#D4A24C">Verse</tspan></text>
+  <text x="240" y="402" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#B9AEDD" letter-spacing="4">EVERY BOOK, A UNIVERSE</text>
+</svg>

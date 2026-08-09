@@ -1,0 +1,38 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ce-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7FC77F"/>
+      <stop offset="100%" stop-color="#2E8B57"/>
+    </linearGradient>
+    <linearGradient id="ce-water" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7FD8DA"/>
+      <stop offset="100%" stop-color="#2A94A8"/>
+    </linearGradient>
+    <radialGradient id="ce-bg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#F3FBF3"/>
+      <stop offset="100%" stop-color="#E4F3EC"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="240" cy="180" r="150" fill="url(#ce-bg)"/>
+
+  <!-- droplet body (earth/water) -->
+  <path d="M240,88 C288,150 316,190 316,224 C316,268 282,300 240,300 C198,300 164,268 164,224 C164,190 192,150 240,88 Z" fill="url(#ce-water)"/>
+
+  <!-- continents as soft leaf-vein style shapes -->
+  <path d="M206,208 C214,196 232,192 244,200 C254,206 268,204 278,214 C266,222 250,222 240,232 C226,224 212,222 206,208 Z" fill="#E8F8F0" fill-opacity="0.85"/>
+  <path d="M212,246 C224,240 238,244 244,254 C234,262 218,262 212,246 Z" fill="#E8F8F0" fill-opacity="0.7"/>
+
+  <!-- two leaves wrapping the globe like hands cupping the earth -->
+  <path d="M164,224 C110,214 78,170 84,116 C140,120 176,158 176,206 C176,214 170,220 164,224 Z" fill="url(#ce-leaf)"/>
+  <path d="M316,224 C370,214 402,170 396,116 C340,120 304,158 304,206 C304,214 310,220 316,224 Z" fill="url(#ce-leaf)"/>
+  <!-- leaf veins -->
+  <path d="M100,132 C132,150 158,178 168,204" fill="none" stroke="#1F5C3E" stroke-width="2" stroke-opacity="0.4" stroke-linecap="round"/>
+  <path d="M380,132 C348,150 322,178 312,204" fill="none" stroke="#1F5C3E" stroke-width="2" stroke-opacity="0.4" stroke-linecap="round"/>
+
+  <!-- stem -->
+  <path d="M240,300 L240,318" stroke="#2E8B57" stroke-width="5" stroke-linecap="round"/>
+
+  <text x="240" y="378" text-anchor="middle" font-family="'Century Gothic','Futura',Verdana,sans-serif" font-size="42" font-weight="700" fill="#1F5C3E" letter-spacing="1">Clean<tspan fill="#2A94A8"> Earth</tspan></text>
+  <text x="240" y="406" text-anchor="middle" font-family="'Century Gothic','Futura',Verdana,sans-serif" font-size="14" fill="#4E8C6E" letter-spacing="3">FOR A HEALTHIER PLANET</text>
+</svg>
