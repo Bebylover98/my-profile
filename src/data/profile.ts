@@ -12,17 +12,21 @@ export const profile = {
   location: 'Kathmandu, Nepal',
   focus: 'Computer Engineering',
   education: 'Hillside College of Engineering, Kathmandu',
-  currentlyBuilding: 'Book Verse Website',
+  currentlyBuilding: 'This Portfolio Website',
 
   email: 'ankitkyadav830@gmail.com',
 
-  bio: `
-
-I’m Ankit Yadav, a passionate Computer Engineering student at Hillside College of Engineering, Kathmandu, Nepal. My journey in technology began at Gurukul National Academy, followed by my +2 studies at Capital College and Research Centre (CCRC). I work with C, C++, Python, HTML, CSS, JavaScript, and Firebase, combining technical skills with creativity and problem-solving. I enjoy building meaningful digital experiences across software, web development, AI, and design.`,
+  bio: `I'm a computer engineering student at Hillside College of Engineering in
+Kathmandu, Nepal. I finished my SEE (up to grade 10) at Gurukul National
+Academy and completed my +2 at Capital College and Research Center (CCRC)
+before starting my engineering degree. Along the way I've been exploring
+software development and slowly turning classroom concepts into real
+projects.`,
 
   interests: ['Web Development', 'Artificial Intelligence', 'Problem Solving', 'Open Source'],
   goals:
-    " My projects include ROSII (AI assistant), Clean Earth, BookVerse, Kickoff Store, and a Note Sharing platform. i am focused on creating technology that makes a real impact.",
+    "I'm working toward becoming a well-rounded software engineer — building a strong foundation in web development and AI while shipping projects that solve real problems.",
+
   availableForCollab: true,
 }
 
@@ -32,5 +36,5 @@ export const terminalLines = [
   { prompt: '~/whoami', output: 'Ankit Kumar Yadav' },
   { prompt: '~/status', output: 'building · learning · shipping' },
   { prompt: '~/stack', output: 'react · typescript · python · ai' },
-  { prompt: '~/focus', output: 'Book verse' },
+  { prompt: '~/focus', output: 'this portfolio website' },
 ]

@@ -57,8 +57,7 @@ export default function About() {
 
           <Reveal delay={0.15}>
             <p className="mt-4 max-w-xl text-balance leading-relaxed text-muted">
-              {profile.goals} Right now I'm learning{' '}
-              <span className="text-ink">{profile.currentlyLearning}</span>.
+              {profile.goals}
             </p>
           </Reveal>
 
