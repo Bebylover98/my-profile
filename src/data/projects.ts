@@ -70,6 +70,28 @@ export const projects: Project[] = [
     demo: 'https://my-profile-chi-self.vercel.app/',
     image: '/projects/portfolio-website.jpg',
   },
+  {
+    id: 'Note-sharing',
+    index: '06',
+    name: 'Note sharing',
+    description:
+      'My personal introduction site — this one. Built to showcase who I am, what I\'m building, and an easy way for people to reach me.',
+    tech: ['HTML', 'CSS', 'javascript'],
+    github: '',
+    demo: '',
+    image: '/projects/note-share.jpg',
+  },
+  {
+    id: 'Quiz-website',
+    index: '07',
+    name: 'Quiz HUB',
+    description:
+      'My personal introduction site — this one. Built to showcase who I am, what I\'m building, and an easy way for people to reach me.',
+    tech: ['HTML', 'css', 'javascriot'],
+    github: '',
+    demo: '',
+    image: '/projects/quiz.jpg',
+  },
 ]
 
 export const currentlyBuilding = {
