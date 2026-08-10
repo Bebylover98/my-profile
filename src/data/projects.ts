@@ -71,26 +71,26 @@ export const projects: Project[] = [
     image: '/projects/portfolio-website.jpg',
   },
   {
-    id: 'Note-sharing',
+    id: 'note-sharing',
     index: '06',
-    name: 'Note sharing',
+    name: 'NoteShare',
     description:
-      'My personal introduction site — this one. Built to showcase who I am, what I\'m building, and an easy way for people to reach me.',
-    tech: ['HTML', 'CSS', 'javascript'],
+      'A note-sharing platform where students can upload, browse, and download study notes — making it easier to share knowledge and learn together.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
     github: '',
     demo: '',
-    image: '/projects/note-share.jpg',
+    image: '/projects/note-share.png',
   },
   {
-    id: 'Quiz-website',
+    id: 'quiz-website',
     index: '07',
-    name: 'Quiz HUB',
+    name: 'QuizHub',
     description:
-      'My personal introduction site — this one. Built to showcase who I am, what I\'m building, and an easy way for people to reach me.',
-    tech: ['HTML', 'css', 'javascriot'],
+      'A quiz website where users can play, learn, and test their knowledge across different topics with instant feedback on right and wrong answers.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
     github: '',
     demo: '',
-    image: '/projects/quiz.jpg',
+    image: '/projects/quiz.png',
   },
 ]
 
